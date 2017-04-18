@@ -1,0 +1,2425 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/nodeca/pako">pako (v1.0.5)</a>
+</h1>
+<h4>zlib port to javascript - fast, modularized, with browser support</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako">module pako</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate">
+            function <span class="apidocSignatureSpan">pako.</span>Deflate
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.prototype.onData">
+            function <span class="apidocSignatureSpan">pako.</span>Deflate.prototype.onData
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.prototype.onEnd">
+            function <span class="apidocSignatureSpan">pako.</span>Deflate.prototype.onEnd
+            <span class="apidocSignatureSpan">(status)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.prototype.push">
+            function <span class="apidocSignatureSpan">pako.</span>Deflate.prototype.push
+            <span class="apidocSignatureSpan">(data, mode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate">
+            function <span class="apidocSignatureSpan">pako.</span>Inflate
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.prototype.onData">
+            function <span class="apidocSignatureSpan">pako.</span>Inflate.prototype.onData
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.prototype.onEnd">
+            function <span class="apidocSignatureSpan">pako.</span>Inflate.prototype.onEnd
+            <span class="apidocSignatureSpan">(status)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.prototype.push">
+            function <span class="apidocSignatureSpan">pako.</span>Inflate.prototype.push
+            <span class="apidocSignatureSpan">(data, mode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.deflate">
+            function <span class="apidocSignatureSpan">pako.</span>deflate
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.deflateRaw">
+            function <span class="apidocSignatureSpan">pako.</span>deflateRaw
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.gzip">
+            function <span class="apidocSignatureSpan">pako.</span>gzip
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.inflate">
+            function <span class="apidocSignatureSpan">pako.</span>inflate
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.inflateRaw">
+            function <span class="apidocSignatureSpan">pako.</span>inflateRaw
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.ungzip">
+            function <span class="apidocSignatureSpan">pako.</span>ungzip
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_BEST_COMPRESSION</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_BEST_SPEED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_BINARY</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_BLOCK</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_BUF_ERROR</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_DATA_ERROR</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_DEFAULT_COMPRESSION</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_DEFAULT_STRATEGY</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_DEFLATED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_ERRNO</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_FILTERED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_FINISH</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_FIXED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_FULL_FLUSH</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_HUFFMAN_ONLY</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_NEED_DICT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_NO_COMPRESSION</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_NO_FLUSH</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_OK</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_PARTIAL_FLUSH</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_RLE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_STREAM_END</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_STREAM_ERROR</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_SYNC_FLUSH</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_TEXT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_TREES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pako.</span>Z_UNKNOWN</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pako.</span>Deflate.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pako.</span>Inflate.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Deflate">module pako.Deflate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.Deflate">
+            function <span class="apidocSignatureSpan">pako.</span>Deflate
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Deflate.prototype">module pako.Deflate.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.prototype.onData">
+            function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>onData
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.prototype.onEnd">
+            function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>onEnd
+            <span class="apidocSignatureSpan">(status)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.prototype.push">
+            function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>push
+            <span class="apidocSignatureSpan">(data, mode)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Deflate.prototype.onData">module pako.Deflate.prototype.onData</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.prototype.onData.onData">
+            function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>onData
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Deflate.prototype.onEnd">module pako.Deflate.prototype.onEnd</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.prototype.onEnd.onEnd">
+            function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>onEnd
+            <span class="apidocSignatureSpan">(status)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Deflate.prototype.push">module pako.Deflate.prototype.push</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Deflate.prototype.push.push">
+            function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>push
+            <span class="apidocSignatureSpan">(data, mode)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Inflate">module pako.Inflate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.Inflate">
+            function <span class="apidocSignatureSpan">pako.</span>Inflate
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Inflate.prototype">module pako.Inflate.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.prototype.onData">
+            function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>onData
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.prototype.onEnd">
+            function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>onEnd
+            <span class="apidocSignatureSpan">(status)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.prototype.push">
+            function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>push
+            <span class="apidocSignatureSpan">(data, mode)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Inflate.prototype.onData">module pako.Inflate.prototype.onData</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.prototype.onData.onData">
+            function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>onData
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Inflate.prototype.onEnd">module pako.Inflate.prototype.onEnd</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.prototype.onEnd.onEnd">
+            function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>onEnd
+            <span class="apidocSignatureSpan">(status)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.Inflate.prototype.push">module pako.Inflate.prototype.push</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.Inflate.prototype.push.push">
+            function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>push
+            <span class="apidocSignatureSpan">(data, mode)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.deflate">module pako.deflate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.deflate.deflate">
+            function <span class="apidocSignatureSpan">pako.</span>deflate
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.deflateRaw">module pako.deflateRaw</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.deflateRaw.deflateRaw">
+            function <span class="apidocSignatureSpan">pako.</span>deflateRaw
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.gzip">module pako.gzip</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.gzip.gzip">
+            function <span class="apidocSignatureSpan">pako.</span>gzip
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.inflate">module pako.inflate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.inflate.inflate">
+            function <span class="apidocSignatureSpan">pako.</span>inflate
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pako.inflateRaw">module pako.inflateRaw</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pako.inflateRaw.inflateRaw">
+            function <span class="apidocSignatureSpan">pako.</span>inflateRaw
+            <span class="apidocSignatureSpan">(input, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako" id="apidoc.module.pako">module pako</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate" id="apidoc.element.pako.Deflate">
+        function <span class="apidocSignatureSpan">pako.</span>Deflate
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Deflate(options) {
+  if (!(this instanceof Deflate)) return new Deflate(options);
+
+  this.options = utils.assign({
+    level: Z_DEFAULT_COMPRESSION,
+    method: Z_DEFLATED,
+    chunkSize: 16384,
+    windowBits: 15,
+    memLevel: 8,
+    strategy: Z_DEFAULT_STRATEGY,
+    to: ''
+  }, options || {});
+
+  var opt = this.options;
+
+  if (opt.raw &amp;&amp; (opt.windowBits &gt; 0)) {
+    opt.windowBits = -opt.windowBits;
+  }
+
+  else if (opt.gzip &amp;&amp; (opt.windowBits &gt; 0) &amp;&amp; (opt.windowBits &lt; 16)) {
+    opt.windowBits += 16;
+  }
+
+  this.err    = 0;      // error code, if happens (0 = Z_OK)
+  this.msg    = '';     // error message
+  this.ended  = false;  // used to avoid multiple onEnd() calls
+  this.chunks = [];     // chunks of compressed data
+
+  this.strm = new ZStream();
+  this.strm.avail_out = 0;
+
+  var status = zlib_deflate.deflateInit2(
+    this.strm,
+    opt.level,
+    opt.method,
+    opt.windowBits,
+    opt.memLevel,
+    opt.strategy
+  );
+
+  if (status !== Z_OK) {
+    throw new Error(msg[status]);
+  }
+
+  if (opt.header) {
+    zlib_deflate.deflateSetHeader(this.strm, opt.header);
+  }
+
+  if (opt.dictionary) {
+    var dict;
+    // Convert data if needed
+    if (typeof opt.dictionary === 'string') {
+      // If we need to compress text, change encoding to utf8.
+      dict = strings.string2buf(opt.dictionary);
+    } else if (toString.call(opt.dictionary) === '[object ArrayBuffer]') {
+      dict = new Uint8Array(opt.dictionary);
+    } else {
+      dict = opt.dictionary;
+    }
+
+    status = zlib_deflate.deflateSetDictionary(this.strm, dict);
+
+    if (status !== Z_OK) {
+      throw new Error(msg[status]);
+    }
+
+    this._dict_set = true;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* ##### Example:
+*
+* ```javascript
+* var pako = require('pako')
+*   , chunk1 = Uint8Array([1,2,3,4,5,6,7,8,9])
+*   , chunk2 = Uint8Array([10,11,12,13,14,15,16,17,18,19]);
+*
+* var deflate = new pako.<span class="apidocCodeKeywordSpan">Deflate</span>({ level: 3});
+*
+* deflate.push(chunk1, false);
+* deflate.push(chunk2, true);  // true -&gt; last chunk
+*
+* if (deflate.err) { throw new Error(deflate.err); }
+*
+* console.log(deflate.result);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.prototype.onData" id="apidoc.element.pako.Deflate.prototype.onData">
+        function <span class="apidocSignatureSpan">pako.</span>Deflate.prototype.onData
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Deflate.prototype.onData = function (chunk) {
+  this.chunks.push(chunk);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.prototype.onEnd" id="apidoc.element.pako.Deflate.prototype.onEnd">
+        function <span class="apidocSignatureSpan">pako.</span>Deflate.prototype.onEnd
+        <span class="apidocSignatureSpan">(status)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Deflate.prototype.onEnd = function (status) {
+  // On success - join
+  if (status === Z_OK) {
+    if (this.options.to === 'string') {
+      this.result = this.chunks.join('');
+    } else {
+      this.result = utils.flattenChunks(this.chunks);
+    }
+  }
+  this.chunks = [];
+  this.err = status;
+  this.msg = this.strm.msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.prototype.push" id="apidoc.element.pako.Deflate.prototype.push">
+        function <span class="apidocSignatureSpan">pako.</span>Deflate.prototype.push
+        <span class="apidocSignatureSpan">(data, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Deflate.prototype.push = function (data, mode) {
+  var strm = this.strm;
+  var chunkSize = this.options.chunkSize;
+  var status, _mode;
+
+  if (this.ended) { return false; }
+
+  _mode = (mode === ~~mode) ? mode : ((mode === true) ? Z_FINISH : Z_NO_FLUSH);
+
+  // Convert data if needed
+  if (typeof data === 'string') {
+    // If we need to compress text, change encoding to utf8.
+    strm.input = strings.string2buf(data);
+  } else if (toString.call(data) === '[object ArrayBuffer]') {
+    strm.input = new Uint8Array(data);
+  } else {
+    strm.input = data;
+  }
+
+  strm.next_in = 0;
+  strm.avail_in = strm.input.length;
+
+  do {
+    if (strm.avail_out === 0) {
+      strm.output = new utils.Buf8(chunkSize);
+      strm.next_out = 0;
+      strm.avail_out = chunkSize;
+    }
+    status = zlib_deflate.deflate(strm, _mode);<span class="apidocCodeCommentSpan">    /* no bad return value */
+</span>
+    if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+      this.onEnd(status);
+      this.ended = true;
+      return false;
+    }
+    if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+      if (this.options.to === 'string') {
+        this.onData(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+      } else {
+        this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+      }
+    }
+  } while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== Z_STREAM_END);
+
+  // Finalize on the last chunk.
+  if (_mode === Z_FINISH) {
+    status = zlib_deflate.deflateEnd(this.strm);
+    this.onEnd(status);
+    this.ended = true;
+    return status === Z_OK;
+  }
+
+  // callback interim results if Z_SYNC_FLUSH.
+  if (_mode === Z_SYNC_FLUSH) {
+    this.onEnd(Z_OK);
+    strm.avail_out = 0;
+    return true;
+  }
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate" id="apidoc.element.pako.Inflate">
+        function <span class="apidocSignatureSpan">pako.</span>Inflate
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Inflate(options) {
+  if (!(this instanceof Inflate)) return new Inflate(options);
+
+  this.options = utils.assign({
+    chunkSize: 16384,
+    windowBits: 0,
+    to: ''
+  }, options || {});
+
+  var opt = this.options;
+
+  // Force window size for `raw` data, if not set directly,
+  // because we have no header for autodetect.
+  if (opt.raw &amp;&amp; (opt.windowBits &gt;= 0) &amp;&amp; (opt.windowBits &lt; 16)) {
+    opt.windowBits = -opt.windowBits;
+    if (opt.windowBits === 0) { opt.windowBits = -15; }
+  }
+
+  // If `windowBits` not defined (and mode not raw) - set autodetect flag for gzip/deflate
+  if ((opt.windowBits &gt;= 0) &amp;&amp; (opt.windowBits &lt; 16) &amp;&amp;
+      !(options &amp;&amp; options.windowBits)) {
+    opt.windowBits += 32;
+  }
+
+  // Gzip header has no info about windows size, we can do autodetect only
+  // for deflate. So, if window size not set, force it to max when gzip possible
+  if ((opt.windowBits &gt; 15) &amp;&amp; (opt.windowBits &lt; 48)) {
+    // bit 3 (16) -&gt; gzipped data
+    // bit 4 (32) -&gt; autodetect gzip/deflate
+    if ((opt.windowBits &amp; 15) === 0) {
+      opt.windowBits |= 15;
+    }
+  }
+
+  this.err    = 0;      // error code, if happens (0 = Z_OK)
+  this.msg    = '';     // error message
+  this.ended  = false;  // used to avoid multiple onEnd() calls
+  this.chunks = [];     // chunks of compressed data
+
+  this.strm   = new ZStream();
+  this.strm.avail_out = 0;
+
+  var status  = zlib_inflate.inflateInit2(
+    this.strm,
+    opt.windowBits
+  );
+
+  if (status !== c.Z_OK) {
+    throw new Error(msg[status]);
+  }
+
+  this.header = new GZheader();
+
+  zlib_inflate.inflateGetHeader(this.strm, this.header);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  console.log(err);
+}
+
+//
+// Alternate interface for chunking &amp; without exceptions
+//
+
+var inflator = new pako.<span class="apidocCodeKeywordSpan">Inflate</span>();
+
+inflator.push(chunk1, false);
+inflator.push(chunk2, false);
+...
+inflator.push(chunkN, true); // true -&gt; last chunk
+
+if (inflator.err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.prototype.onData" id="apidoc.element.pako.Inflate.prototype.onData">
+        function <span class="apidocSignatureSpan">pako.</span>Inflate.prototype.onData
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Inflate.prototype.onData = function (chunk) {
+  this.chunks.push(chunk);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.prototype.onEnd" id="apidoc.element.pako.Inflate.prototype.onEnd">
+        function <span class="apidocSignatureSpan">pako.</span>Inflate.prototype.onEnd
+        <span class="apidocSignatureSpan">(status)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Inflate.prototype.onEnd = function (status) {
+  // On success - join
+  if (status === c.Z_OK) {
+    if (this.options.to === 'string') {
+      // Glue &amp; convert here, until we teach pako to send
+      // utf8 alligned strings to onData
+      this.result = this.chunks.join('');
+    } else {
+      this.result = utils.flattenChunks(this.chunks);
+    }
+  }
+  this.chunks = [];
+  this.err = status;
+  this.msg = this.strm.msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.prototype.push" id="apidoc.element.pako.Inflate.prototype.push">
+        function <span class="apidocSignatureSpan">pako.</span>Inflate.prototype.push
+        <span class="apidocSignatureSpan">(data, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Inflate.prototype.push = function (data, mode) {
+  var strm = this.strm;
+  var chunkSize = this.options.chunkSize;
+  var dictionary = this.options.dictionary;
+  var status, _mode;
+  var next_out_utf8, tail, utf8str;
+  var dict;
+
+  // Flag to properly process Z_BUF_ERROR on testing inflate call
+  // when we check that all output data was flushed.
+  var allowBufError = false;
+
+  if (this.ended) { return false; }
+  _mode = (mode === ~~mode) ? mode : ((mode === true) ? c.Z_FINISH : c.Z_NO_FLUSH);
+
+  // Convert data if needed
+  if (typeof data === 'string') {
+    // Only binary strings can be decompressed on practice
+    strm.input = strings.binstring2buf(data);
+  } else if (toString.call(data) === '[object ArrayBuffer]') {
+    strm.input = new Uint8Array(data);
+  } else {
+    strm.input = data;
+  }
+
+  strm.next_in = 0;
+  strm.avail_in = strm.input.length;
+
+  do {
+    if (strm.avail_out === 0) {
+      strm.output = new utils.Buf8(chunkSize);
+      strm.next_out = 0;
+      strm.avail_out = chunkSize;
+    }
+
+    status = zlib_inflate.inflate(strm, c.Z_NO_FLUSH);<span class="apidocCodeCommentSpan">    /* no bad return value */
+</span>
+    if (status === c.Z_NEED_DICT &amp;&amp; dictionary) {
+      // Convert data if needed
+      if (typeof dictionary === 'string') {
+        dict = strings.string2buf(dictionary);
+      } else if (toString.call(dictionary) === '[object ArrayBuffer]') {
+        dict = new Uint8Array(dictionary);
+      } else {
+        dict = dictionary;
+      }
+
+      status = zlib_inflate.inflateSetDictionary(this.strm, dict);
+
+    }
+
+    if (status === c.Z_BUF_ERROR &amp;&amp; allowBufError === true) {
+      status = c.Z_OK;
+      allowBufError = false;
+    }
+
+    if (status !== c.Z_STREAM_END &amp;&amp; status !== c.Z_OK) {
+      this.onEnd(status);
+      this.ended = true;
+      return false;
+    }
+
+    if (strm.next_out) {
+      if (strm.avail_out === 0 || status === c.Z_STREAM_END || (strm.avail_in === 0 &amp;&amp; (_mode === c.Z_FINISH || _mode === c.Z_SYNC_FLUSH
+))) {
+
+        if (this.options.to === 'string') {
+
+          next_out_utf8 = strings.utf8border(strm.output, strm.next_out);
+
+          tail = strm.next_out - next_out_utf8;
+          utf8str = strings.buf2string(strm.output, next_out_utf8);
+
+          // move tail
+          strm.next_out = tail;
+          strm.avail_out = chunkSize - tail;
+          if (tail) { utils.arraySet(strm.output, strm.output, next_out_utf8, tail, 0); }
+
+          this.onData(utf8str);
+
+        } else {
+          this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+        }
+      }
+    }
+
+    // When no more input data, we should check that internal inflate buffers
+    // are flushed. The only way to do it when avail_out = 0 - run one more
+    // inflate pass. But if output data not exists, inflate return Z_BUF_ERROR.
+    // Here we set flag to process this error properly.
+    //
+    // NOTE. Deflate does not return error in this case and does not needs such
+    // logic.
+    if (strm.avail_in === 0 &amp;&amp; strm.avail_out === 0) {
+      allowBufError = true;
+    }
+
+  } while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== c.Z_STREAM_END);
+
+  if (status === c.Z_STREAM_END) {
+    _mode = c.Z_FINISH;
+  }
+
+  // Finalize on the last chunk.
+  if (_mode === c.Z_FINISH) {
+    status = zlib_inflate.inflateEnd(this.strm);
+    this.onEnd(status);
+    this.ended = true;
+    return status === c.Z_OK;
+  }
+
+  // callback interim results if Z_SYNC_FLUSH.
+  if (_mode === c.Z_SYNC_FLUSH) {
+    this.onEnd(c.Z_OK);
+    strm.avail_out = 0;
+    return true;
+  }
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.deflate" id="apidoc.element.pako.deflate">
+        function <span class="apidocSignatureSpan">pako.</span>deflate
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deflate(input, options) {
+  var deflator = new Deflate(options);
+
+  deflator.push(input, true);
+
+  // That will never happens, if you don't cheat with options :)
+  if (deflator.err) { throw deflator.msg || msg[deflator.err]; }
+
+  return deflator.result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+var pako = require('pako');
+
+// Deflate
+//
+var input = new Uint8Array();
+//... fill input data here
+var output = pako.<span class="apidocCodeKeywordSpan">deflate</span>(input);
+
+// Inflate (simple wrapper can throw exception on broken stream)
+//
+var compressed = new Uint8Array();
+//... fill data to uncompress here
+try {
+var result = pako.inflate(compressed);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.deflateRaw" id="apidoc.element.pako.deflateRaw">
+        function <span class="apidocSignatureSpan">pako.</span>deflateRaw
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deflateRaw(input, options) {
+  options = options || {};
+  options.raw = true;
+  return deflate(input, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.gzip" id="apidoc.element.pako.gzip">
+        function <span class="apidocSignatureSpan">pako.</span>gzip
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function gzip(input, options) {
+  options = options || {};
+  options.gzip = true;
+  return deflate(input, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.inflate" id="apidoc.element.pako.inflate">
+        function <span class="apidocSignatureSpan">pako.</span>inflate
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inflate(input, options) {
+  var inflator = new Inflate(options);
+
+  inflator.push(input, true);
+
+  // That will never happens, if you don't cheat with options :)
+  if (inflator.err) { throw inflator.msg || msg[inflator.err]; }
+
+  return inflator.result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var output = pako.deflate(input);
+
+// Inflate (simple wrapper can throw exception on broken stream)
+//
+var compressed = new Uint8Array();
+//... fill data to uncompress here
+try {
+  var result = pako.<span class="apidocCodeKeywordSpan">inflate</span>(compressed);
+} catch (err) {
+  console.log(err);
+}
+
+//
+// Alternate interface for chunking &amp; without exceptions
+//
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.inflateRaw" id="apidoc.element.pako.inflateRaw">
+        function <span class="apidocSignatureSpan">pako.</span>inflateRaw
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inflateRaw(input, options) {
+  options = options || {};
+  options.raw = true;
+  return inflate(input, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.ungzip" id="apidoc.element.pako.ungzip">
+        function <span class="apidocSignatureSpan">pako.</span>ungzip
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inflate(input, options) {
+  var inflator = new Inflate(options);
+
+  inflator.push(input, true);
+
+  // That will never happens, if you don't cheat with options :)
+  if (inflator.err) { throw inflator.msg || msg[inflator.err]; }
+
+  return inflator.result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Deflate" id="apidoc.module.pako.Deflate">module pako.Deflate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.Deflate" id="apidoc.element.pako.Deflate.Deflate">
+        function <span class="apidocSignatureSpan">pako.</span>Deflate
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Deflate(options) {
+  if (!(this instanceof Deflate)) return new Deflate(options);
+
+  this.options = utils.assign({
+    level: Z_DEFAULT_COMPRESSION,
+    method: Z_DEFLATED,
+    chunkSize: 16384,
+    windowBits: 15,
+    memLevel: 8,
+    strategy: Z_DEFAULT_STRATEGY,
+    to: ''
+  }, options || {});
+
+  var opt = this.options;
+
+  if (opt.raw &amp;&amp; (opt.windowBits &gt; 0)) {
+    opt.windowBits = -opt.windowBits;
+  }
+
+  else if (opt.gzip &amp;&amp; (opt.windowBits &gt; 0) &amp;&amp; (opt.windowBits &lt; 16)) {
+    opt.windowBits += 16;
+  }
+
+  this.err    = 0;      // error code, if happens (0 = Z_OK)
+  this.msg    = '';     // error message
+  this.ended  = false;  // used to avoid multiple onEnd() calls
+  this.chunks = [];     // chunks of compressed data
+
+  this.strm = new ZStream();
+  this.strm.avail_out = 0;
+
+  var status = zlib_deflate.deflateInit2(
+    this.strm,
+    opt.level,
+    opt.method,
+    opt.windowBits,
+    opt.memLevel,
+    opt.strategy
+  );
+
+  if (status !== Z_OK) {
+    throw new Error(msg[status]);
+  }
+
+  if (opt.header) {
+    zlib_deflate.deflateSetHeader(this.strm, opt.header);
+  }
+
+  if (opt.dictionary) {
+    var dict;
+    // Convert data if needed
+    if (typeof opt.dictionary === 'string') {
+      // If we need to compress text, change encoding to utf8.
+      dict = strings.string2buf(opt.dictionary);
+    } else if (toString.call(opt.dictionary) === '[object ArrayBuffer]') {
+      dict = new Uint8Array(opt.dictionary);
+    } else {
+      dict = opt.dictionary;
+    }
+
+    status = zlib_deflate.deflateSetDictionary(this.strm, dict);
+
+    if (status !== Z_OK) {
+      throw new Error(msg[status]);
+    }
+
+    this._dict_set = true;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* ##### Example:
+*
+* ```javascript
+* var pako = require('pako')
+*   , chunk1 = Uint8Array([1,2,3,4,5,6,7,8,9])
+*   , chunk2 = Uint8Array([10,11,12,13,14,15,16,17,18,19]);
+*
+* var deflate = new pako.<span class="apidocCodeKeywordSpan">Deflate</span>({ level: 3});
+*
+* deflate.push(chunk1, false);
+* deflate.push(chunk2, true);  // true -&gt; last chunk
+*
+* if (deflate.err) { throw new Error(deflate.err); }
+*
+* console.log(deflate.result);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Deflate.prototype" id="apidoc.module.pako.Deflate.prototype">module pako.Deflate.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.prototype.onData" id="apidoc.element.pako.Deflate.prototype.onData">
+        function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>onData
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onData = function (chunk) {
+  this.chunks.push(chunk);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+    this.onEnd(status);
+    this.ended = true;
+    return false;
+  }
+  if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+    if (this.options.to === 'string') {
+      this.<span class="apidocCodeKeywordSpan">onData</span>(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+    } else {
+      this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+    }
+  }
+} while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== Z_STREAM_END);
+
+// Finalize on the last chunk.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.prototype.onEnd" id="apidoc.element.pako.Deflate.prototype.onEnd">
+        function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>onEnd
+        <span class="apidocSignatureSpan">(status)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onEnd = function (status) {
+  // On success - join
+  if (status === Z_OK) {
+    if (this.options.to === 'string') {
+      this.result = this.chunks.join('');
+    } else {
+      this.result = utils.flattenChunks(this.chunks);
+    }
+  }
+  this.chunks = [];
+  this.err = status;
+  this.msg = this.strm.msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  strm.output = new utils.Buf8(chunkSize);
+  strm.next_out = 0;
+  strm.avail_out = chunkSize;
+}
+status = zlib_deflate.deflate(strm, _mode);    /* no bad return value */
+
+if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+  this.<span class="apidocCodeKeywordSpan">onEnd</span>(status);
+  this.ended = true;
+  return false;
+}
+if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+  if (this.options.to === 'string') {
+    this.onData(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+  } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.prototype.push" id="apidoc.element.pako.Deflate.prototype.push">
+        function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>push
+        <span class="apidocSignatureSpan">(data, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">push = function (data, mode) {
+  var strm = this.strm;
+  var chunkSize = this.options.chunkSize;
+  var status, _mode;
+
+  if (this.ended) { return false; }
+
+  _mode = (mode === ~~mode) ? mode : ((mode === true) ? Z_FINISH : Z_NO_FLUSH);
+
+  // Convert data if needed
+  if (typeof data === 'string') {
+    // If we need to compress text, change encoding to utf8.
+    strm.input = strings.string2buf(data);
+  } else if (toString.call(data) === '[object ArrayBuffer]') {
+    strm.input = new Uint8Array(data);
+  } else {
+    strm.input = data;
+  }
+
+  strm.next_in = 0;
+  strm.avail_in = strm.input.length;
+
+  do {
+    if (strm.avail_out === 0) {
+      strm.output = new utils.Buf8(chunkSize);
+      strm.next_out = 0;
+      strm.avail_out = chunkSize;
+    }
+    status = zlib_deflate.deflate(strm, _mode);<span class="apidocCodeCommentSpan">    /* no bad return value */
+</span>
+    if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+      this.onEnd(status);
+      this.ended = true;
+      return false;
+    }
+    if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+      if (this.options.to === 'string') {
+        this.onData(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+      } else {
+        this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+      }
+    }
+  } while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== Z_STREAM_END);
+
+  // Finalize on the last chunk.
+  if (_mode === Z_FINISH) {
+    status = zlib_deflate.deflateEnd(this.strm);
+    this.onEnd(status);
+    this.ended = true;
+    return status === Z_OK;
+  }
+
+  // callback interim results if Z_SYNC_FLUSH.
+  if (_mode === Z_SYNC_FLUSH) {
+    this.onEnd(Z_OK);
+    strm.avail_out = 0;
+    return true;
+  }
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//
+// Alternate interface for chunking &amp; without exceptions
+//
+
+var inflator = new pako.Inflate();
+
+inflator.<span class="apidocCodeKeywordSpan">push</span>(chunk1, false);
+inflator.push(chunk2, false);
+...
+inflator.push(chunkN, true); // true -&gt; last chunk
+
+if (inflator.err) {
+  console.log(inflator.msg);
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Deflate.prototype.onData" id="apidoc.module.pako.Deflate.prototype.onData">module pako.Deflate.prototype.onData</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.prototype.onData.onData" id="apidoc.element.pako.Deflate.prototype.onData.onData">
+        function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>onData
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onData = function (chunk) {
+  this.chunks.push(chunk);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+    this.onEnd(status);
+    this.ended = true;
+    return false;
+  }
+  if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+    if (this.options.to === 'string') {
+      this.<span class="apidocCodeKeywordSpan">onData</span>(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+    } else {
+      this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+    }
+  }
+} while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== Z_STREAM_END);
+
+// Finalize on the last chunk.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Deflate.prototype.onEnd" id="apidoc.module.pako.Deflate.prototype.onEnd">module pako.Deflate.prototype.onEnd</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.prototype.onEnd.onEnd" id="apidoc.element.pako.Deflate.prototype.onEnd.onEnd">
+        function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>onEnd
+        <span class="apidocSignatureSpan">(status)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onEnd = function (status) {
+  // On success - join
+  if (status === Z_OK) {
+    if (this.options.to === 'string') {
+      this.result = this.chunks.join('');
+    } else {
+      this.result = utils.flattenChunks(this.chunks);
+    }
+  }
+  this.chunks = [];
+  this.err = status;
+  this.msg = this.strm.msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  strm.output = new utils.Buf8(chunkSize);
+  strm.next_out = 0;
+  strm.avail_out = chunkSize;
+}
+status = zlib_deflate.deflate(strm, _mode);    /* no bad return value */
+
+if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+  this.<span class="apidocCodeKeywordSpan">onEnd</span>(status);
+  this.ended = true;
+  return false;
+}
+if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+  if (this.options.to === 'string') {
+    this.onData(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+  } else {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Deflate.prototype.push" id="apidoc.module.pako.Deflate.prototype.push">module pako.Deflate.prototype.push</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Deflate.prototype.push.push" id="apidoc.element.pako.Deflate.prototype.push.push">
+        function <span class="apidocSignatureSpan">pako.Deflate.prototype.</span>push
+        <span class="apidocSignatureSpan">(data, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">push = function (data, mode) {
+  var strm = this.strm;
+  var chunkSize = this.options.chunkSize;
+  var status, _mode;
+
+  if (this.ended) { return false; }
+
+  _mode = (mode === ~~mode) ? mode : ((mode === true) ? Z_FINISH : Z_NO_FLUSH);
+
+  // Convert data if needed
+  if (typeof data === 'string') {
+    // If we need to compress text, change encoding to utf8.
+    strm.input = strings.string2buf(data);
+  } else if (toString.call(data) === '[object ArrayBuffer]') {
+    strm.input = new Uint8Array(data);
+  } else {
+    strm.input = data;
+  }
+
+  strm.next_in = 0;
+  strm.avail_in = strm.input.length;
+
+  do {
+    if (strm.avail_out === 0) {
+      strm.output = new utils.Buf8(chunkSize);
+      strm.next_out = 0;
+      strm.avail_out = chunkSize;
+    }
+    status = zlib_deflate.deflate(strm, _mode);<span class="apidocCodeCommentSpan">    /* no bad return value */
+</span>
+    if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+      this.onEnd(status);
+      this.ended = true;
+      return false;
+    }
+    if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+      if (this.options.to === 'string') {
+        this.onData(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+      } else {
+        this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+      }
+    }
+  } while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== Z_STREAM_END);
+
+  // Finalize on the last chunk.
+  if (_mode === Z_FINISH) {
+    status = zlib_deflate.deflateEnd(this.strm);
+    this.onEnd(status);
+    this.ended = true;
+    return status === Z_OK;
+  }
+
+  // callback interim results if Z_SYNC_FLUSH.
+  if (_mode === Z_SYNC_FLUSH) {
+    this.onEnd(Z_OK);
+    strm.avail_out = 0;
+    return true;
+  }
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//
+// Alternate interface for chunking &amp; without exceptions
+//
+
+var inflator = new pako.Inflate();
+
+inflator.<span class="apidocCodeKeywordSpan">push</span>(chunk1, false);
+inflator.push(chunk2, false);
+...
+inflator.push(chunkN, true); // true -&gt; last chunk
+
+if (inflator.err) {
+  console.log(inflator.msg);
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Inflate" id="apidoc.module.pako.Inflate">module pako.Inflate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.Inflate" id="apidoc.element.pako.Inflate.Inflate">
+        function <span class="apidocSignatureSpan">pako.</span>Inflate
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Inflate(options) {
+  if (!(this instanceof Inflate)) return new Inflate(options);
+
+  this.options = utils.assign({
+    chunkSize: 16384,
+    windowBits: 0,
+    to: ''
+  }, options || {});
+
+  var opt = this.options;
+
+  // Force window size for `raw` data, if not set directly,
+  // because we have no header for autodetect.
+  if (opt.raw &amp;&amp; (opt.windowBits &gt;= 0) &amp;&amp; (opt.windowBits &lt; 16)) {
+    opt.windowBits = -opt.windowBits;
+    if (opt.windowBits === 0) { opt.windowBits = -15; }
+  }
+
+  // If `windowBits` not defined (and mode not raw) - set autodetect flag for gzip/deflate
+  if ((opt.windowBits &gt;= 0) &amp;&amp; (opt.windowBits &lt; 16) &amp;&amp;
+      !(options &amp;&amp; options.windowBits)) {
+    opt.windowBits += 32;
+  }
+
+  // Gzip header has no info about windows size, we can do autodetect only
+  // for deflate. So, if window size not set, force it to max when gzip possible
+  if ((opt.windowBits &gt; 15) &amp;&amp; (opt.windowBits &lt; 48)) {
+    // bit 3 (16) -&gt; gzipped data
+    // bit 4 (32) -&gt; autodetect gzip/deflate
+    if ((opt.windowBits &amp; 15) === 0) {
+      opt.windowBits |= 15;
+    }
+  }
+
+  this.err    = 0;      // error code, if happens (0 = Z_OK)
+  this.msg    = '';     // error message
+  this.ended  = false;  // used to avoid multiple onEnd() calls
+  this.chunks = [];     // chunks of compressed data
+
+  this.strm   = new ZStream();
+  this.strm.avail_out = 0;
+
+  var status  = zlib_inflate.inflateInit2(
+    this.strm,
+    opt.windowBits
+  );
+
+  if (status !== c.Z_OK) {
+    throw new Error(msg[status]);
+  }
+
+  this.header = new GZheader();
+
+  zlib_inflate.inflateGetHeader(this.strm, this.header);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  console.log(err);
+}
+
+//
+// Alternate interface for chunking &amp; without exceptions
+//
+
+var inflator = new pako.<span class="apidocCodeKeywordSpan">Inflate</span>();
+
+inflator.push(chunk1, false);
+inflator.push(chunk2, false);
+...
+inflator.push(chunkN, true); // true -&gt; last chunk
+
+if (inflator.err) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Inflate.prototype" id="apidoc.module.pako.Inflate.prototype">module pako.Inflate.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.prototype.onData" id="apidoc.element.pako.Inflate.prototype.onData">
+        function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>onData
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onData = function (chunk) {
+  this.chunks.push(chunk);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+    this.onEnd(status);
+    this.ended = true;
+    return false;
+  }
+  if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+    if (this.options.to === 'string') {
+      this.<span class="apidocCodeKeywordSpan">onData</span>(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+    } else {
+      this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+    }
+  }
+} while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== Z_STREAM_END);
+
+// Finalize on the last chunk.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.prototype.onEnd" id="apidoc.element.pako.Inflate.prototype.onEnd">
+        function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>onEnd
+        <span class="apidocSignatureSpan">(status)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onEnd = function (status) {
+  // On success - join
+  if (status === c.Z_OK) {
+    if (this.options.to === 'string') {
+      // Glue &amp; convert here, until we teach pako to send
+      // utf8 alligned strings to onData
+      this.result = this.chunks.join('');
+    } else {
+      this.result = utils.flattenChunks(this.chunks);
+    }
+  }
+  this.chunks = [];
+  this.err = status;
+  this.msg = this.strm.msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  strm.output = new utils.Buf8(chunkSize);
+  strm.next_out = 0;
+  strm.avail_out = chunkSize;
+}
+status = zlib_deflate.deflate(strm, _mode);    /* no bad return value */
+
+if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+  this.<span class="apidocCodeKeywordSpan">onEnd</span>(status);
+  this.ended = true;
+  return false;
+}
+if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+  if (this.options.to === 'string') {
+    this.onData(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+  } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.prototype.push" id="apidoc.element.pako.Inflate.prototype.push">
+        function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>push
+        <span class="apidocSignatureSpan">(data, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">push = function (data, mode) {
+  var strm = this.strm;
+  var chunkSize = this.options.chunkSize;
+  var dictionary = this.options.dictionary;
+  var status, _mode;
+  var next_out_utf8, tail, utf8str;
+  var dict;
+
+  // Flag to properly process Z_BUF_ERROR on testing inflate call
+  // when we check that all output data was flushed.
+  var allowBufError = false;
+
+  if (this.ended) { return false; }
+  _mode = (mode === ~~mode) ? mode : ((mode === true) ? c.Z_FINISH : c.Z_NO_FLUSH);
+
+  // Convert data if needed
+  if (typeof data === 'string') {
+    // Only binary strings can be decompressed on practice
+    strm.input = strings.binstring2buf(data);
+  } else if (toString.call(data) === '[object ArrayBuffer]') {
+    strm.input = new Uint8Array(data);
+  } else {
+    strm.input = data;
+  }
+
+  strm.next_in = 0;
+  strm.avail_in = strm.input.length;
+
+  do {
+    if (strm.avail_out === 0) {
+      strm.output = new utils.Buf8(chunkSize);
+      strm.next_out = 0;
+      strm.avail_out = chunkSize;
+    }
+
+    status = zlib_inflate.inflate(strm, c.Z_NO_FLUSH);<span class="apidocCodeCommentSpan">    /* no bad return value */
+</span>
+    if (status === c.Z_NEED_DICT &amp;&amp; dictionary) {
+      // Convert data if needed
+      if (typeof dictionary === 'string') {
+        dict = strings.string2buf(dictionary);
+      } else if (toString.call(dictionary) === '[object ArrayBuffer]') {
+        dict = new Uint8Array(dictionary);
+      } else {
+        dict = dictionary;
+      }
+
+      status = zlib_inflate.inflateSetDictionary(this.strm, dict);
+
+    }
+
+    if (status === c.Z_BUF_ERROR &amp;&amp; allowBufError === true) {
+      status = c.Z_OK;
+      allowBufError = false;
+    }
+
+    if (status !== c.Z_STREAM_END &amp;&amp; status !== c.Z_OK) {
+      this.onEnd(status);
+      this.ended = true;
+      return false;
+    }
+
+    if (strm.next_out) {
+      if (strm.avail_out === 0 || status === c.Z_STREAM_END || (strm.avail_in === 0 &amp;&amp; (_mode === c.Z_FINISH || _mode === c.Z_SYNC_FLUSH
+))) {
+
+        if (this.options.to === 'string') {
+
+          next_out_utf8 = strings.utf8border(strm.output, strm.next_out);
+
+          tail = strm.next_out - next_out_utf8;
+          utf8str = strings.buf2string(strm.output, next_out_utf8);
+
+          // move tail
+          strm.next_out = tail;
+          strm.avail_out = chunkSize - tail;
+          if (tail) { utils.arraySet(strm.output, strm.output, next_out_utf8, tail, 0); }
+
+          this.onData(utf8str);
+
+        } else {
+          this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+        }
+      }
+    }
+
+    // When no more input data, we should check that internal inflate buffers
+    // are flushed. The only way to do it when avail_out = 0 - run one more
+    // inflate pass. But if output data not exists, inflate return Z_BUF_ERROR.
+    // Here we set flag to process this error properly.
+    //
+    // NOTE. Deflate does not return error in this case and does not needs such
+    // logic.
+    if (strm.avail_in === 0 &amp;&amp; strm.avail_out === 0) {
+      allowBufError = true;
+    }
+
+  } while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== c.Z_STREAM_END);
+
+  if (status === c.Z_STREAM_END) {
+    _mode = c.Z_FINISH;
+  }
+
+  // Finalize on the last chunk.
+  if (_mode === c.Z_FINISH) {
+    status = zlib_inflate.inflateEnd(this.strm);
+    this.onEnd(status);
+    this.ended = true;
+    return status === c.Z_OK;
+  }
+
+  // callback interim results if Z_SYNC_FLUSH.
+  if (_mode === c.Z_SYNC_FLUSH) {
+    this.onEnd(c.Z_OK);
+    strm.avail_out = 0;
+    return true;
+  }
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//
+// Alternate interface for chunking &amp; without exceptions
+//
+
+var inflator = new pako.Inflate();
+
+inflator.<span class="apidocCodeKeywordSpan">push</span>(chunk1, false);
+inflator.push(chunk2, false);
+...
+inflator.push(chunkN, true); // true -&gt; last chunk
+
+if (inflator.err) {
+  console.log(inflator.msg);
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Inflate.prototype.onData" id="apidoc.module.pako.Inflate.prototype.onData">module pako.Inflate.prototype.onData</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.prototype.onData.onData" id="apidoc.element.pako.Inflate.prototype.onData.onData">
+        function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>onData
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onData = function (chunk) {
+  this.chunks.push(chunk);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+    this.onEnd(status);
+    this.ended = true;
+    return false;
+  }
+  if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+    if (this.options.to === 'string') {
+      this.<span class="apidocCodeKeywordSpan">onData</span>(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+    } else {
+      this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+    }
+  }
+} while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== Z_STREAM_END);
+
+// Finalize on the last chunk.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Inflate.prototype.onEnd" id="apidoc.module.pako.Inflate.prototype.onEnd">module pako.Inflate.prototype.onEnd</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.prototype.onEnd.onEnd" id="apidoc.element.pako.Inflate.prototype.onEnd.onEnd">
+        function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>onEnd
+        <span class="apidocSignatureSpan">(status)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onEnd = function (status) {
+  // On success - join
+  if (status === c.Z_OK) {
+    if (this.options.to === 'string') {
+      // Glue &amp; convert here, until we teach pako to send
+      // utf8 alligned strings to onData
+      this.result = this.chunks.join('');
+    } else {
+      this.result = utils.flattenChunks(this.chunks);
+    }
+  }
+  this.chunks = [];
+  this.err = status;
+  this.msg = this.strm.msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  strm.output = new utils.Buf8(chunkSize);
+  strm.next_out = 0;
+  strm.avail_out = chunkSize;
+}
+status = zlib_deflate.deflate(strm, _mode);    /* no bad return value */
+
+if (status !== Z_STREAM_END &amp;&amp; status !== Z_OK) {
+  this.<span class="apidocCodeKeywordSpan">onEnd</span>(status);
+  this.ended = true;
+  return false;
+}
+if (strm.avail_out === 0 || (strm.avail_in === 0 &amp;&amp; (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))) {
+  if (this.options.to === 'string') {
+    this.onData(strings.buf2binstring(utils.shrinkBuf(strm.output, strm.next_out)));
+  } else {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.Inflate.prototype.push" id="apidoc.module.pako.Inflate.prototype.push">module pako.Inflate.prototype.push</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.Inflate.prototype.push.push" id="apidoc.element.pako.Inflate.prototype.push.push">
+        function <span class="apidocSignatureSpan">pako.Inflate.prototype.</span>push
+        <span class="apidocSignatureSpan">(data, mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">push = function (data, mode) {
+  var strm = this.strm;
+  var chunkSize = this.options.chunkSize;
+  var dictionary = this.options.dictionary;
+  var status, _mode;
+  var next_out_utf8, tail, utf8str;
+  var dict;
+
+  // Flag to properly process Z_BUF_ERROR on testing inflate call
+  // when we check that all output data was flushed.
+  var allowBufError = false;
+
+  if (this.ended) { return false; }
+  _mode = (mode === ~~mode) ? mode : ((mode === true) ? c.Z_FINISH : c.Z_NO_FLUSH);
+
+  // Convert data if needed
+  if (typeof data === 'string') {
+    // Only binary strings can be decompressed on practice
+    strm.input = strings.binstring2buf(data);
+  } else if (toString.call(data) === '[object ArrayBuffer]') {
+    strm.input = new Uint8Array(data);
+  } else {
+    strm.input = data;
+  }
+
+  strm.next_in = 0;
+  strm.avail_in = strm.input.length;
+
+  do {
+    if (strm.avail_out === 0) {
+      strm.output = new utils.Buf8(chunkSize);
+      strm.next_out = 0;
+      strm.avail_out = chunkSize;
+    }
+
+    status = zlib_inflate.inflate(strm, c.Z_NO_FLUSH);<span class="apidocCodeCommentSpan">    /* no bad return value */
+</span>
+    if (status === c.Z_NEED_DICT &amp;&amp; dictionary) {
+      // Convert data if needed
+      if (typeof dictionary === 'string') {
+        dict = strings.string2buf(dictionary);
+      } else if (toString.call(dictionary) === '[object ArrayBuffer]') {
+        dict = new Uint8Array(dictionary);
+      } else {
+        dict = dictionary;
+      }
+
+      status = zlib_inflate.inflateSetDictionary(this.strm, dict);
+
+    }
+
+    if (status === c.Z_BUF_ERROR &amp;&amp; allowBufError === true) {
+      status = c.Z_OK;
+      allowBufError = false;
+    }
+
+    if (status !== c.Z_STREAM_END &amp;&amp; status !== c.Z_OK) {
+      this.onEnd(status);
+      this.ended = true;
+      return false;
+    }
+
+    if (strm.next_out) {
+      if (strm.avail_out === 0 || status === c.Z_STREAM_END || (strm.avail_in === 0 &amp;&amp; (_mode === c.Z_FINISH || _mode === c.Z_SYNC_FLUSH
+))) {
+
+        if (this.options.to === 'string') {
+
+          next_out_utf8 = strings.utf8border(strm.output, strm.next_out);
+
+          tail = strm.next_out - next_out_utf8;
+          utf8str = strings.buf2string(strm.output, next_out_utf8);
+
+          // move tail
+          strm.next_out = tail;
+          strm.avail_out = chunkSize - tail;
+          if (tail) { utils.arraySet(strm.output, strm.output, next_out_utf8, tail, 0); }
+
+          this.onData(utf8str);
+
+        } else {
+          this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+        }
+      }
+    }
+
+    // When no more input data, we should check that internal inflate buffers
+    // are flushed. The only way to do it when avail_out = 0 - run one more
+    // inflate pass. But if output data not exists, inflate return Z_BUF_ERROR.
+    // Here we set flag to process this error properly.
+    //
+    // NOTE. Deflate does not return error in this case and does not needs such
+    // logic.
+    if (strm.avail_in === 0 &amp;&amp; strm.avail_out === 0) {
+      allowBufError = true;
+    }
+
+  } while ((strm.avail_in &gt; 0 || strm.avail_out === 0) &amp;&amp; status !== c.Z_STREAM_END);
+
+  if (status === c.Z_STREAM_END) {
+    _mode = c.Z_FINISH;
+  }
+
+  // Finalize on the last chunk.
+  if (_mode === c.Z_FINISH) {
+    status = zlib_inflate.inflateEnd(this.strm);
+    this.onEnd(status);
+    this.ended = true;
+    return status === c.Z_OK;
+  }
+
+  // callback interim results if Z_SYNC_FLUSH.
+  if (_mode === c.Z_SYNC_FLUSH) {
+    this.onEnd(c.Z_OK);
+    strm.avail_out = 0;
+    return true;
+  }
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//
+// Alternate interface for chunking &amp; without exceptions
+//
+
+var inflator = new pako.Inflate();
+
+inflator.<span class="apidocCodeKeywordSpan">push</span>(chunk1, false);
+inflator.push(chunk2, false);
+...
+inflator.push(chunkN, true); // true -&gt; last chunk
+
+if (inflator.err) {
+  console.log(inflator.msg);
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.deflate" id="apidoc.module.pako.deflate">module pako.deflate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.deflate.deflate" id="apidoc.element.pako.deflate.deflate">
+        function <span class="apidocSignatureSpan">pako.</span>deflate
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deflate(input, options) {
+  var deflator = new Deflate(options);
+
+  deflator.push(input, true);
+
+  // That will never happens, if you don't cheat with options :)
+  if (deflator.err) { throw deflator.msg || msg[deflator.err]; }
+
+  return deflator.result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+var pako = require('pako');
+
+// Deflate
+//
+var input = new Uint8Array();
+//... fill input data here
+var output = pako.<span class="apidocCodeKeywordSpan">deflate</span>(input);
+
+// Inflate (simple wrapper can throw exception on broken stream)
+//
+var compressed = new Uint8Array();
+//... fill data to uncompress here
+try {
+var result = pako.inflate(compressed);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.deflateRaw" id="apidoc.module.pako.deflateRaw">module pako.deflateRaw</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.deflateRaw.deflateRaw" id="apidoc.element.pako.deflateRaw.deflateRaw">
+        function <span class="apidocSignatureSpan">pako.</span>deflateRaw
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deflateRaw(input, options) {
+  options = options || {};
+  options.raw = true;
+  return deflate(input, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.gzip" id="apidoc.module.pako.gzip">module pako.gzip</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.gzip.gzip" id="apidoc.element.pako.gzip.gzip">
+        function <span class="apidocSignatureSpan">pako.</span>gzip
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function gzip(input, options) {
+  options = options || {};
+  options.gzip = true;
+  return deflate(input, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.inflate" id="apidoc.module.pako.inflate">module pako.inflate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.inflate.inflate" id="apidoc.element.pako.inflate.inflate">
+        function <span class="apidocSignatureSpan">pako.</span>inflate
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inflate(input, options) {
+  var inflator = new Inflate(options);
+
+  inflator.push(input, true);
+
+  // That will never happens, if you don't cheat with options :)
+  if (inflator.err) { throw inflator.msg || msg[inflator.err]; }
+
+  return inflator.result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var output = pako.deflate(input);
+
+// Inflate (simple wrapper can throw exception on broken stream)
+//
+var compressed = new Uint8Array();
+//... fill data to uncompress here
+try {
+  var result = pako.<span class="apidocCodeKeywordSpan">inflate</span>(compressed);
+} catch (err) {
+  console.log(err);
+}
+
+//
+// Alternate interface for chunking &amp; without exceptions
+//
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pako.inflateRaw" id="apidoc.module.pako.inflateRaw">module pako.inflateRaw</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pako.inflateRaw.inflateRaw" id="apidoc.element.pako.inflateRaw.inflateRaw">
+        function <span class="apidocSignatureSpan">pako.</span>inflateRaw
+        <span class="apidocSignatureSpan">(input, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inflateRaw(input, options) {
+  options = options || {};
+  options.raw = true;
+  return inflate(input, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
